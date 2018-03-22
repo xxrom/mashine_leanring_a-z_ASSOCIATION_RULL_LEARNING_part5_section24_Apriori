@@ -28,7 +28,7 @@ rules = apriori(
     # поэтому делим на два и потом еще на два делим 0.45 , 0.2
     # хорошая комбинация как сказал учитель
     min_confidence = 0.2,
-    # минимум надо 3, можно и 4,5 или даже 6, но это от базы зависит
+    # минимум надо 3, можно и 4,5 или даже 6, но это от данных зависит
     min_lift = 3,
     min_length = 2
     # max_length = 4
@@ -38,8 +38,13 @@ rules = apriori(
 # реального уже можно корректировать настроки под себя
 
 # Visualising the results
-
-
+# результаты уже отсортированы по комбинации критерий support confidence lift
+# в R были отсортированы по lift, результат почти такойже
+results = list(rules)
+# исправляем проблему отображения данных
+results_list = []
+for i in range(0, len(results)):
+    results_list.append('RULE:\t' + str(results[i][0]) + '\nSUPPORT:\t' + str(results[i][1]))
 
 
 
